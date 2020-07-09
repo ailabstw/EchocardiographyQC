@@ -3,9 +3,28 @@ Echocardiography Quality Control Utilities
 
 ## Introduction
 
-This repository contains two windows executable for echocardiography quality control.
-1. `dicom-inferrer-1.0.0.exe`: Inference tool that takes in echocardiography and outputs corresponding quality information.
-2. `report-viewer-1.0.0.exe`: Viewer tool that takes in the output of inference tool for better analysis.
+This repository contains three **Microsoft WINDOWS** executable for echocardiography quality control.
+1. `dicom-preprocess-1.0.0.exe`: Preprocessing tool that takes in DICOMs and outputs JPEG Images and Metadata for `dicom-inferrer-1.0.0.exe`
+2. `dicom-inferrer-1.0.0.exe`: Inference tool that takes in echocardiography and outputs corresponding quality information.
+3. `report-viewer-1.0.0.exe`: Viewer tool that takes in the output of inference tool for better analysis.
+
+## Preprocessing tool
+
+The preprocessing tool, `dicom-preprocess-1.0.0.exe` is an executable with graphical user interface for extracting DICOM into JPEG images for the inference tool in next step. This tool reads DICOM, masks images, and crops the central region. This tool accepts echocardiography DICOM from four different machines.
+
+1. Philips CX50
+2. Philips EPIQ7C
+3. Philips iE33
+4. HP SONOS
+
+### Usage
+First select the source directory and output directory, and then click the Start Preprocessing button. **Your directory structures should be as same as `SourceDICOM`**. The tool will only extract DICOM **videos** and output JPEG images and metadata. **Output directory structures will be similar to `SourceImages`**.
+![](./materials/preprocessing-start.png)
+
+### Result
+After the progress bar is full of color, you'll see the extracted images (Only for **video** types).
+
+![](./materials/preprocessing-finish.png)
 
 ## Inference Tool
 
@@ -23,7 +42,7 @@ We suggest you to select a single case for inference if you're testing this tool
 
 ### Input
 
-The source directory should be organized in the following structure (`...prefix/patient/series/JPGFiles`). Any directory above `case01`(included) level in the following figures is acceptable.
+The source directory should be organized in the following structure (`...prefix/patient/series/JPGFiles`). Any directory above `case01`(included) level in the following figures is acceptable. (or you could directly select the output directory from previous `dicom-preprocessing-1.0.0.exe` as the input of this tool.)
 
 ![](./materials/directory-structure.png)
 
@@ -33,17 +52,16 @@ The preprocessing steps are
 1. Crop the central region of images such that only sector area remains.
 2. Mask the cropped image such that only sector area is viewable.
 
+These steps should be easily done with the preprocessing tool that we provided above.
+
 The `metadata.txt` file includes
 
 ![](./materials/input-metadata.png)
 
 ### Output
 
-The tool would output each series result as a subfolder in output directory named after series ID in input `metadat.txt`.
-For each series, three kinds of CAM results are provided
-1. `Standard`: No normalization
-2. `Fix Range`: Normalize to (-25, 25)
-3. `Video Base`: Normalize to (minimum CAM value of the series, maximum CAM value of the series)
+The tool would output each series result as a subfolder in output directory named after series ID in input `metadata.txt`.
+For each series, CAM results are provided, and the result has been normalized to (-25, 25).
 
 Also, a `conf.npy` stores the quality information.
 
