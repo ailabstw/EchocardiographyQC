@@ -88,8 +88,7 @@ Each column (from left to right) represents:
 Other view's quality confidence and prediction confidence can be seen by dragging the list.
 3. `Avg Prob`: Average prediction probability of the view. This number is averaged over the selected cycles(SB column).
 4. `Avg Conf`: Average **quality confidence** of the view. This number is averaged over the selected cycles(SB column).
-5. `SD`: Standard Deviation of **quality confidence** of the view. 
-The nth quantile could be adjusted through the text box above the left region.
+5. `SD`: Standard Deviation of **quality confidence** of the view.
 5. `Corr %`: The correct percentage of the DICOM video. This value is calculated by correct view prediction frames / total frames.
 6. `SB`: Select which cardiography cycles to be viewed.
 7. `TB`: Select total cardiography cycles to be viewed.
