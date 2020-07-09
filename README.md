@@ -58,7 +58,9 @@ Select the source directory and the report directory, which should be as same as
 
 ![](./materials/view-sample.png)
 
-#### View stats of patients
+#### View stats and inference images of patients
+
+
 
 After navigating to the patient in the left region, the central region will show each series inference result for this patient.
 Each column (from left to right) represents:
@@ -68,26 +70,13 @@ Each column (from left to right) represents:
 Other view's quality confidence and prediction confidence can be seen by dragging the list.
 3. `Avg Prob`: Average prediction probability of the view. This number is averaged over the selected cycles(SB column).
 4. `Avg Conf`: Average **quality confidence** of the view. This number is averaged over the selected cycles(SB column).
-5. `Qnt Prob`: Taking the nth quantile of prediction probability of the view. This is the nth quantile of the selected cycles(SB column).
+5. `SD`: Standard Deviation of **quality confidence** of the view. 
 The nth quantile could be adjusted through the text box above the left region.
-5. `Qnt Conf`: Taking the nth quantile of **quality confidence** of the view. This is the nth quantile of the selected cycles(SB column).
-The nth quantile could be adjusted through the text box above the left region.
+5. `Corr %`: The correct percentage of the DICOM video. This value is calculated by correct view prediction frames / total frames.
 6. `SB`: Select which cardiography cycles to be viewed.
 7. `TB`: Select total cardiography cycles to be viewed.
 
+In the right region, the upper block show the original images and the lower block show the inference images. 
 
 ![](./materials/view-sample2.png)
-
-#### View inference images of patients
-
-In the right region, the upper block show the original images and the lower block show the inference images. \
-Other images could be viewed by dragging the bar in the middle.
-
-Three kinds of CAM map could be selected by the list next to the quantile box. 
-1. `Standard`: No normalization
-2. `Fix Range`: Normalize to (-25, 25)
-3. `Video Base`: Normalize to (minimum CAM value of the series, maximum CAM value of the series)
-
-![](materials/select-cam.png)
-
 
