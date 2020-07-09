@@ -42,7 +42,7 @@ We suggest you to select a single case for inference if you're testing this tool
 
 ### Input
 
-The source directory should be organized in the following structure (`...prefix/patient/series/JPGFiles`). Any directory above `case01`(included) level in the following figures is acceptable. (or you could directly select the output directory from previous `dicom-preprocessing-1.0.0.exe` as the input of this tool.)
+The source directory should be organized in the following structure (`...prefix/patient/series/JPGFiles`, see `SourceImages` as an example). Any directory above `case01`(included) level in the following figures is acceptable. (or you could directly select the output directory from previous `dicom-preprocessing-1.0.0.exe` as the input of this tool.)
 
 ![](./materials/directory-structure.png)
 
