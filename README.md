@@ -3,7 +3,7 @@ Echocardiography Quality Control Utilities
 
 ## Introduction
 
-This repository contains three **Microsoft WINDOWS** executable for echocardiography quality control.
+This repository contains three **Microsoft WINDOWS** executable for echocardiography quality control. **Please turn off the antivirus software to execute inference tool**
 1. `dicom-preprocess-1.0.0.exe`: Preprocessing tool that takes in DICOMs and outputs JPEG Images and Metadata for `dicom-inferrer-1.0.0.exe`
 2. `dicom-inferrer-1.0.0.exe`: Inference tool that takes in echocardiography and outputs corresponding quality information.
 3. `report-viewer-1.0.0.exe`: Viewer tool that takes in the output of inference tool for better analysis.
@@ -32,6 +32,9 @@ The inference tool, `dicom-inferrer-1.0.0.exe`, is an executable with graphical 
 ![](./materials/inference-idle.png)
 
 ### Usage
+**Please turn off the antivirus software to execute inference tool**
+
+
 First select the source directory and output directory, and then click the Start Inference button.
 ![](./materials/infer-samples.png)
 
