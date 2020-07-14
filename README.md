@@ -3,14 +3,14 @@ Echocardiography Quality Control Utilities
 
 ## Introduction
 
-This repository contains three **Microsoft WINDOWS** executable for echocardiography quality control. **Please turn off the antivirus software to execute inference tool**
+This repository contains three **Microsoft WINDOWS** executable for echocardiography quality control. **In some cases, you may have to disable some antivirus software for executing this inference tool**
 1. `dicom-preprocess-1.0.0.exe`: Preprocessing tool that takes in DICOMs and outputs JPEG Images and Metadata for `dicom-inferrer-1.0.0.exe`
 2. `dicom-inferrer-1.0.0.exe`: Inference tool that takes in echocardiography and outputs corresponding quality information.
 3. `report-viewer-1.0.0.exe`: Viewer tool that takes in the output of inference tool for better analysis.
 
 ## Preprocessing tool
 
-The preprocessing tool, `dicom-preprocess-1.0.0.exe` is an executable with graphical user interface for extracting DICOM into JPEG images for the inference tool in next step. This tool reads DICOM, masks images, and crops the central region. This tool accepts echocardiography DICOM from four different machines.
+The preprocessing tool, `dicom-preprocess-1.0.0.exe` is an executable with graphical user interface for extracting DICOM into JPEG images for the inference tool in next step. This tool reads DICOM, masks images, and crops the central region. This tool accepts echocardiography DICOM from four different machines. **The mask image file (`*.bmp`) should be in the same directory as `dicom-preprocess-1.0.0.exe`**
 
 1. Philips CX50
 2. Philips EPIQ7C
@@ -90,8 +90,8 @@ Each column (from left to right) represents:
 2. `View`: Predicted view of the cardiography. The tool shows the predicted view by default, which would be in red color. 
 Other view's quality confidence and prediction confidence can be seen by dragging the list.
 3. `Avg Prob`: Average prediction probability of the view. This number is averaged over the selected cycles(SB column).
-4. `Avg Conf`: Average **quality confidence** of the view. This number is averaged over the selected cycles(SB column).
-5. `SD`: Standard Deviation of **quality confidence** of the view.
+4. `Avg Conf`: Average **classification confidence** of the view. This number is averaged over the selected cycles(SB column).
+5. `SD`: Standard Deviation of **classification confidence** of the view.
 5. `Corr %`: The correct percentage of the DICOM video. This value is calculated by correct view prediction frames / total frames.
 6. `SB`: Select which cardiography cycles to be viewed.
 7. `TB`: Select total cardiography cycles to be viewed.
